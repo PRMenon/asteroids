@@ -36,12 +36,13 @@ def main():
 
         for asteroid in asteroids:
             if asteroid.collide(player):
-                print("Game Over")
+                print(f"Game Over: You Scored {player.score}")
                 return
             for shot in shots:
                 if asteroid.collide(shot):
                     asteroid.split()
                     shot.kill()
+                    player.update_score()
 
         screen.fill("black")
 
